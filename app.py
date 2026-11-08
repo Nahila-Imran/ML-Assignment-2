@@ -98,7 +98,7 @@ left, right = st.columns(2)
 with left:
     st.markdown("**Confusion matrix**")
     fig, ax = plt.subplots(figsize=(4.2, 3.8))
-    ConfusionMatrixDisplay.from_predictions(y, pred, display_labels=LABELS, cmap="Purples", ax=ax, colorbar=False)
+    ConfusionMatrixDisplay.from_predictions(y, pred, display_labels=LABELS, cmap="Blues", ax=ax, colorbar=False)
     ax.set_title(model_name)
     st.pyplot(fig)
 with right:
