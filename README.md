@@ -36,7 +36,11 @@ Settings: **Logistic Regression** - max_iter = 1000, with feature scaling. **Dec
 
 | ML Model Name | Observation about model performance |
 |---|---|
-| Logistic Regression | Second-best accuracy (96.5%) and the highest precision (0.980) - only 1 false positive in 143 rows. It missed 4 malignant cases (recall 0.925). The strong result shows the classes are close to linearly separable once features are standardised, and it stays fast and interpretable. |
+| Logistic Regression | - Accuracy: 96.5% – It correctly predicted 96.5% of cases.
+- Precision: 0.980 – When it predicted cancer, it was correct most of the time.
+- Only 1 false positive – It incorrectly identified just 1 healthy case as cancer.
+- It missed 4 actual cancer cases.
+Simple meaning: Logistic Regression performed very well. It is fast, simple and easy to understand, but it missed 4 cancer cases. |
 | Decision Tree | Weakest model on every metric (accuracy 92.3%, AUC 0.940, MCC 0.835) with 5 false positives and 6 false negatives. A single depth-limited tree is a high-variance learner and its hard splits give coarse probability scores, hence the lower AUC. |
 | KNN | Accurate (95.8%) with AUC 0.980 and recall 0.925, similar to Logistic Regression but slightly lower in precision (2 false positives). It depends on feature scaling, and prediction is slower because it stores the whole training set. |
 | Naive Bayes | Accuracy is modest (93.0%) yet its AUC of 0.988 ties for the best, so it ranks cases very well but its default 0.5 threshold is poorly placed. Features such as radius, perimeter and area are strongly correlated, which breaks the independence assumption and makes its probabilities over-confident. |
