@@ -22,7 +22,7 @@ MODEL_FILES = {
     "Support Vector Machine": "support_vector_machine.joblib",
 }
 
-st.set_page_config(page_title="Tumour Classifier Lab", page_icon="🧪", layout="wide")
+st.set_page_config(page_title="Nahila's Cancer Detection Dashboard", page_icon="🩺", layout="wide")
 
 
 @st.cache_resource
@@ -46,18 +46,18 @@ def compute_metrics(y_true, y_pred, y_prob):
     }
 
 
-st.title("🧪 Breast Tumour Classifier Lab")
-st.caption("Compare five pre-trained classifiers on the Breast Cancer Wisconsin (Diagnostic) data. "
+st.title("🩺 Nahila's Cancer Detection Dashboard 🩺")
+st.caption("Upload test data and see how five ML models perform on tumour diagnosis."
            "Models are loaded from disk - nothing is retrained on your upload.")
 
 features = load_features()
 
 with st.sidebar:
-    st.header("Controls")
-    uploaded = st.file_uploader("Upload test data (CSV)", type="csv",
+    st.header("Dashboard Options")
+    uploaded = st.file_uploader("Choose your test file", type="csv",
                                 help=f"Needs the {len(features)} feature columns plus a '{TARGET}' column.")
-    model_name = st.selectbox("Select model", list(MODEL_FILES))
-    show_all = st.checkbox("Also compare all 5 models", value=True)
+    model_name = st.selectbox("Pick a classifier", list(MODEL_FILES))
+    show_all = st.checkbox("Show all models side by side", value=True)
     st.markdown("---")
     st.markdown("**Target:** `diagnosis` (1 = malignant, 0 = benign)")
     st.markdown("No file handy? Use `test_data.csv` from the GitHub repo.")
@@ -98,7 +98,7 @@ left, right = st.columns(2)
 with left:
     st.markdown("**Confusion matrix**")
     fig, ax = plt.subplots(figsize=(4.2, 3.8))
-    ConfusionMatrixDisplay.from_predictions(y, pred, display_labels=LABELS, cmap="PuBuGn", ax=ax, colorbar=False)
+    ConfusionMatrixDisplay.from_predictions(y, pred, display_labels=LABELS, cmap="Purples", ax=ax, colorbar=False)
     ax.set_title(model_name)
     st.pyplot(fig)
 with right:
@@ -114,5 +114,5 @@ if show_all:
         s = compute_metrics(y, m.predict(X), m.predict_proba(X)[:, 1])
         rows.append({"ML Model Name": name, **s})
     comp = pd.DataFrame(rows).set_index("ML Model Name").round(4)
-    st.dataframe(comp.style.highlight_max(axis=0, color="#cfe8d5"), use_container_width=True)
+    st.dataframe(comp.style.highlight_max(axis=0, color="#ffe0b2"), use_container_width=True)
     st.bar_chart(comp[["Accuracy", "F1", "MCC"]])
