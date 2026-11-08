@@ -43,7 +43,7 @@ Settings: **Logistic Regression** - max_iter = 1000, with feature scaling. **Dec
 | Support Vector Machine | SVM performed the best overall. It correctly identified most cancer and non-cancer cases and made very few mistakes. |
 | Overall winner | After comparing five machine learning models, Support Vector Machine (SVM) achieved the best overall performance, with 97.2% accuracy, 96.2% recall and a 0.962 F1-score. It also made only 2 false positive and 2 false negative predictions.|
 
-| Logistic Regression and KNN also performed well, while Decision Tree showed the weakest performance.
+|   | Logistic Regression and KNN also performed well, while Decision Tree showed the weakest performance.
 Therefore, SVM is the best-performing model in this experiment. However, further testing with a larger dataset and proper parameter tuning is needed before considering it for real medical use. |
 
 ## How to run
