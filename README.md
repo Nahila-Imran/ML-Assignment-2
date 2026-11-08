@@ -13,19 +13,11 @@ Early and accurate classification of breast masses as benign or malignant is cen
 - **Preprocessing:** StandardScaler inside the scikit-learn Pipeline for Logistic Regression, KNN and SVM (fitted on training data only). Decision Tree and Gaussian Naive Bayes use raw features.
 
 ## c. GitHub repository link
-[ADD YOUR GITHUB REPO LINK HERE]
+https://github.com/Nahila-Imran/ML-Assignment-2
 
-Live Streamlit app: [ADD YOUR STREAMLIT APP LINK HERE]
+Live Streamlit app: https://ml-assignment-2-mlwevmpce4vs699txvzcqo.streamlit.app/
 
-```
-project-folder/
-|-- app.py
-|-- train_models.py
-|-- requirements.txt
-|-- README.md
-|-- test_data.csv
-|-- model/   (5 saved .joblib classifiers, feature_names.json, metrics_summary.csv)
-```
+
 
 ## d. Models used
 Comparison table (evaluated on the 143-row held-out test set):
