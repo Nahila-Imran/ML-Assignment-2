@@ -37,11 +37,15 @@ Settings: **Logistic Regression** - max_iter = 1000, with feature scaling. **Dec
 | ML Model Name | Observation about model performance |
 |---|---|
 | Logistic Regression | Logistic Regression performed very well. It is fast, simple and easy to understand, but it missed 4 cancer cases. |
-| Decision Tree | Weakest model on every metric (accuracy 92.3%, AUC 0.940, MCC 0.835) with 5 false positives and 6 false negatives. A single depth-limited tree is a high-variance learner and its hard splits give coarse probability scores, hence the lower AUC. |
-| KNN | Accurate (95.8%) with AUC 0.980 and recall 0.925, similar to Logistic Regression but slightly lower in precision (2 false positives). It depends on feature scaling, and prediction is slower because it stores the whole training set. |
-| Naive Bayes | Accuracy is modest (93.0%) yet its AUC of 0.988 ties for the best, so it ranks cases very well but its default 0.5 threshold is poorly placed. Features such as radius, perimeter and area are strongly correlated, which breaks the independence assumption and makes its probabilities over-confident. |
-| Support Vector Machine | Best on accuracy (97.2%), recall (0.962), F1 (0.962) and MCC (0.940), with an AUC of 0.988 (tied with Naive Bayes). It made only 2 false negatives and 2 false positives, because the RBF kernel captures mild non-linearity in the scaled feature space. |
-| Overall winner | Support Vector Machine - it is best on accuracy, recall, F1 and MCC, and has the fewest missed malignant cases. Caveat: the test set has only 143 rows, so one case moves accuracy by about 0.7 points; SVM, Logistic Regression and KNN are close and the gap between them may not be statistically significant. Hyperparameters were set by hand and not tuned with cross-validation. |
+| Decision Tree | Decision Tree was the weakest model in this comparison. It made more mistakes than the other models. |
+| KNN | KNN did well because after scaling, patients with similar measurements sit close together. It made 2 false alarms but missed 4 cancers, which is a concern in a medical setting. |
+| Naive Bayes | ANaive Bayes can rank cancer and non-cancer cases very well, but its final predictions were not as accurate because its default decision threshold was not suitable. |
+| Support Vector Machine | SVM performed the best overall. It correctly identified most cancer and non-cancer cases and made very few mistakes. |
+| Overall winner | After comparing five machine learning models, Support Vector Machine (SVM) achieved the best overall performance, with 97.2% accuracy, 96.2% recall and a 0.962 F1-score. It also made only 2 false positive and 2 false negative predictions.
+
+Logistic Regression and KNN also performed well, while Decision Tree showed the weakest performance.
+
+Therefore, SVM is the best-performing model in this experiment. However, further testing with a larger dataset and proper parameter tuning is needed before considering it for real medical use. |
 
 ## How to run
 ```
