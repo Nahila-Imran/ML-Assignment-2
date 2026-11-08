@@ -18,9 +18,9 @@ Missing a cancer case is more serious than a false alarm. So I check recall and 
 | Train/test split | 75% for training (426 rows) and 25% for testing (143 rows). The split keeps the same benign/malignant ratio in both parts. The test rows are saved as `test_data.csv`, and the Streamlit app uses this file. |
 | Preprocessing | Logistic Regression, KNN and SVM use feature scaling (`StandardScaler`), learned from the training data only. Decision Tree and Naive Bayes use the raw values. |
 
-## c. GitHub repository link
+## c. Links
 
-https://github.com/Nahila-Imran/ML-Assignment-2
+GitHub repository: https://github.com/Nahila-Imran/ML-Assignment-2
 
 Live Streamlit app: https://ml-assignment-2-mlwevmpce4vs699txvzcqo.streamlit.app/
 
